@@ -1,0 +1,18 @@
+Overview
+  0. essentially a detection problem - to assign 
+  1. a picture can take differet
+      a. lighting
+      b. angles
+      c. background
+      d. occlusions
+  2. need to diiferentiate/ produce labels
+      a. colors - similar looking/
+      b. texures
+      c. shapes/ type of dresses
+      d. figures ex. printed flowers/faces
+      e. accessories ex. hats,necklaces, scarves
+      
+  3. need to remove backgrounds
+      
+      
+      
