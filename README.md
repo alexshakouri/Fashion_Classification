@@ -14,7 +14,7 @@ procedure
    d. 
    
    
-2. Initial CNN training
+2. Initial CNN training - start with first 60,000 - 50,000 - traing , 10,000 - validation 4/24/18-5/1/18
 
    a. x_i - different sizes - resized the images- Is this the way? PADDING?
    
@@ -25,5 +25,7 @@ procedure
       * can we directly feed vectors of different lenghts
       
       * What else - GOOGLE
-3. 
+      
+   c. compare results with kaggle
+
    
