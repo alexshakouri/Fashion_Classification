@@ -134,18 +134,24 @@ for col in range(1,train_image_mat.shape[1]):
 """
 ### creating the filename and label vectors
 current_train_mat = train_image_mat[1:50001,1:229]
+current_eval_mat = train_image_mat[50001:60001,1:229]
 #current_train_mat = train_image_mat[1:50001,1]
 print(current_train_mat.shape)
+print(current_eval_mat.shape)
 train_filenames = np.asarray(['D:\dataset\inputs\{}.jpg'.format(i) for i in range(1,50001)]).reshape(50000,1)
 train_labels = current_train_mat.todense().reshape((50000,228))
 #train_labels = current_train_mat.todense().reshape((50000,1))
 print('Shape of file names : ',train_filenames.shape)
 print('Shape of labels: ',train_labels.shape)
 
+eval_filenames = np.asarray(['D:\dataset\inputs\{}.jpg'.format(i) for i in range(50001,60001)]).reshape(10000,1)
+eval_labels = current_eval_mat.todense().reshape((10000,228))
+#train_labels = current_train_mat.todense().reshape((50000,1))
+print('Shape of file names : ',eval_filenames.shape)
+print('Shape of labels: ',eval_labels.shape)
 
-print(train_filenames[0:10])
-print(train_labels[0:10])
 
+########### reading with tensorflow - Didnt work
 """
 def _parse_function(filename, label):
   image_string = tf.read_file(filename)
@@ -171,15 +177,19 @@ def _read_py_function(filename, label):
 # Use standard TensorFlow operations to resize the image to a fixed shape.
 def _resize_function(image_decoded, label):
   image_decoded.set_shape([None, None, None])
-  image_resized = tf.image.resize_images(image_decoded, [28, 28])
+  image_resized = tf.image.resize_images(image_decoded, [10, 10])
   return image_resized, label
 
-filenames = train_filenames
-labels = train_labels
 
-dataset = tf.data.Dataset.from_tensor_slices((filenames, labels))
-dataset = dataset.map(
+train_dataset = tf.data.Dataset.from_tensor_slices((train_filenames, train_labels))
+train_dataset = train_dataset.map(
     lambda filename, label: tuple(tf.py_func(
         _read_py_function, [filename, label], [tf.uint8, label.dtype])))
-dataset = dataset.map(_resize_function)
+train_dataset = train_dataset.map(_resize_function)
+
+eval_dataset = tf.data.Dataset.from_tensor_slices((eval_filenames, eval_labels))
+eval_dataset = train_dataset.map(
+    lambda filename, label: tuple(tf.py_func(
+        _read_py_function, [filename, label], [tf.uint8, label.dtype])))
+eval_dataset = eval_dataset.map(_resize_function)
 
