@@ -1,0 +1,4 @@
+I tried replicating CIFAR example
+
+Didn't create distorted images, fed the resized images direcly to the pipeline. There is an error at the feeding stage. The training and evaluation dataset needs to be iterable (apparently).
+
