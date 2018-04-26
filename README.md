@@ -16,7 +16,7 @@ procedure
    
 2. Initial CNN training - start with first 60,000 - 50,000 - traing , 10,000 - validation 4/24/18-5/1/18
 
-      * prepared train and validation tensors, can be fead in to tf pipeline to distort and batch - code uploded
+      * prepared train and validation tensors, can be fed in to tf pipeline to distort and batch - code uploded 'fashion_reads_images_createdatasetfor_TF.py'
       
       * read this https://www.tensorflow.org/programmers_guide/datasets
 
