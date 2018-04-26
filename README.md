@@ -16,6 +16,10 @@ procedure
    
 2. Initial CNN training - start with first 60,000 - 50,000 - traing , 10,000 - validation 4/24/18-5/1/18
 
+      * prepared train and validation tensors, can be fead in to tf pipeline to distort and batch - code uploded
+      
+      * read this https://www.tensorflow.org/programmers_guide/datasets
+
    a. x_i - different sizes - resized the images- Is this the way? PADDING?
    
    b. y_i - multiple labels, how to feed them
