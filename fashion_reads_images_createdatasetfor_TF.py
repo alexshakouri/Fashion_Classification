@@ -188,7 +188,7 @@ train_dataset = train_dataset.map(
 train_dataset = train_dataset.map(_resize_function)
 
 eval_dataset = tf.data.Dataset.from_tensor_slices((eval_filenames, eval_labels))
-eval_dataset = train_dataset.map(
+eval_dataset = eval_dataset.map(
     lambda filename, label: tuple(tf.py_func(
         _read_py_function, [filename, label], [tf.uint8, label.dtype])))
 eval_dataset = eval_dataset.map(_resize_function)
