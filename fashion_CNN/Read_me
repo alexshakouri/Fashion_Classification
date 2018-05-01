@@ -4,3 +4,5 @@ Didn't create distorted images, fed the resized images direcly to the pipeline. 
 
 Now we can feeed, but I'm not sure if I'm doing it right. May be we dont have to augment the images for now because our dataset is large.
 I updated the codes.
+
+If it doesn't work, may be we can just write a simple one with keras
