@@ -8,8 +8,8 @@ import csv
 import numpy as np
 import pandas as pd
 y_Test = np.load('y_Test.npy')
-print('y_Test loaded with size',y_Test.shape)
-print(y_Test[1,:])
+#print('y_Test loaded with size',y_Test.shape)
+#print(y_Test[1,:])
 
 imageId = np.arange(1, y_Test.shape[0]+1)
 
